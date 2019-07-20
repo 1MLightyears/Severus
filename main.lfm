@@ -1,16 +1,18 @@
 object mainform: Tmainform
-  Left = 503
-  Height = 223
-  Top = 244
-  Width = 405
+  Left = 608
+  Height = 224
+  Top = 283
+  Width = 403
   AllowDropFiles = True
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
-  Caption = '图种管理器0.2'
-  ClientHeight = 223
-  ClientWidth = 405
+  Caption = '图种管理器0.3'
+  ClientHeight = 224
+  ClientWidth = 403
   DesignTimePPI = 120
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnDropFiles = FormDropFiles
   LCLVersion = '1.8.4.0'
   object mainpage: TPageControl
     Tag = 2
@@ -280,8 +282,8 @@ object mainform: Tmainform
         Left = 2
         Height = 180
         Top = 6
-        Width = 297
-        Caption = 'v0.2:'#13#10'-支持jpg文件和rar文件位于中文路径下'#13#10#13#10#13#10#13#10#13#10'作者:百万光年'#13#10'bug:lightyearsyuan@qq.com'#13#10'工具:说起来你可能不信但这是用Lazarus写的'
+        Width = 306
+        Caption = 'v0.2:'#13#10'-支持jpg文件和rar文件位于中文路径下'#13#10'v0.3:'#13#10'-现在可以将文件拖入窗口来添加文件了'#13#10'-现在可以将文件拖到程序图标上来添加文件了'#13#10#13#10'作者:百万光年'#13#10'bug:lightyearsyuan@qq.com'#13#10'工具:说起来你可能不信但这是用Lazarus写的'
         ParentColor = False
       end
     end

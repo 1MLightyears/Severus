@@ -43,14 +43,22 @@ type
     procedure Button4Click(Sender: TObject);
     procedure Button5Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+    procedure FormDropFiles(Sender: TObject; const FileNames: array of String);
 
   private
 
   public
-    procedure DragFileProc(var Msg: TMessage);message WM_DROPFILES;
+//    procedure DragFileProc(var Msg: TMessage);message WM_DROPFILES;
   end;
-
+  //begin DropFiles
+  TChangeWindowMessageFilter = function(msg: Cardinal; Action: Dword): BOOL; stdcall;
+  //end DropFiles
 var
+  //begin DropFiles
+  User32Module: THandle;
+  ChangeWindowMessageFilterPtr: Pointer;
+  //end DropFiles
   mainform: Tmainform;
 implementation
 
@@ -125,10 +133,8 @@ procedure Tmainform.Button4Click(Sender: TObject);
 begin
   dopen.Filter:='JPG图片|*.jpg';
   if dopen.Execute then begin//如果确实导入了一个图种文件
-
      picname.Text:=Dopen.FileName;
      picpreview.Picture.LoadFromFile(Dopen.FileName);
-
   end;
 end;
 
@@ -176,29 +182,98 @@ begin
   end;
 
 end;
+//现用现加载USER32.dll
+//begin DropFiles
+function CheckUser32Module: Boolean;
+begin
+ if User32Module=0 then User32Module:=safeLoadLibrary('USER32.DLL');
+ Result:=User32Module>HINSTANCE_ERROR;
+end;
+
+function CheckUser32ModuleFunc(const Name: string; var ptr: Pointer): Boolean;
+begin
+ Result:=CheckUser32Module;
+ if Result then
+  begin
+   ptr:=GetProcAddress(User32Module, PChar(Name));
+   Result:=Assigned(ptr);
+   if not Result then ptr:=Pointer(1);
+  end;
+end;
+//call ChangeWindowMessageFilter() in USER32.DLL
+function ChangeWindowMessageFilter(msg: Cardinal; Action: Dword): BOOL;
+begin
+ if (byte(ChangeWindowMessageFilterPtr) > 1) or
+  CheckUser32ModuleFunc('ChangeWindowMessageFilter', ChangeWindowMessageFilterPtr) then
+ Result:=TChangeWindowMessageFilter(ChangeWindowMessageFilterPtr)(Cardinal(msg), action)
+ else Result:=false;
+end;
+//end DropFiles
 
 procedure Tmainform.FormCreate(Sender: TObject);
-
+const
+  WM_COPYGLOBALDATA = 73;
+  MSGFLT_ADD = 1;
 begin
   //注册窗口可以接受拖入文件
-  DragAcceptFiles (self.Handle, True);
-end;
-//TODO:完成可以拖入文件的功能
-procedure Tmainform.DragFileProc(var Msg: TMessage);
-var
-   filename,fileext: unicodestring;
-   buffer:pwidechar;
-begin
-  DragQueryFile(Msg.wParam, 0, buffer, 255);
-  filename:=unicodestring(buffer);
-  //文件名就在filename里面了，
-  fileext:=copy(filename,length(filename)-4,4);
-  if fileext='.rar'then
-    rarfile.Text:=filename
-  else if fileext='.jpg' then
-    jpgfile.Text:=filename;
-  DragFinish(Msg.wParam);
+  mainform.AllowDropFiles:=True;
+  //为读取WinRAR安装路径，使用了Unit Regestry;这要求管理员权限
+  //管理员权限使得程序运行在高MIC，因此不能接受explorer.exe(中MIC)拖拽来的程序图标
+  //因此必须用ChangeWindowMessageFilter修改使得系统不block
+  //而Lazarus的Windows单元里没有这个函数，所以要现加载USER32.DLL现用
+  //见 DropFiles 部分
+  try
+     ChangeWindowMessageFilter(WM_COPYGLOBALDATA, MSGFLT_ADD);
+     ChangeWindowMessageFilter(WM_DROPFILES, MSGFLT_ADD);
+  except;end;
+  if paramcount>0 then
+    self.FormDropFiles(self,paramstr(1));
 end;
 
+procedure Tmainform.FormDestroy(Sender: TObject);
+begin
+   //释放dll
+   if User32Module<>0 then FreeLibrary(User32Module);
+end;
+
+procedure Tmainform.FormDropFiles(Sender: TObject;
+  const FileNames: array of String);
+var
+  f:Thandle;
+  ch:char;
+  i:integer;//为批量处理预留
+begin
+  {进行处理
+  step1:取一个文件名
+  step2:判断文件类型，.rar跳step6
+  step3:判断是否图种，不是跳step5
+  step4:读入picname，跳step7
+  step5:读入jpgname，跳step7
+  step6:读入rarname
+  step7:处理完毕，重复step1至无文件为止
+  }
+  //流式文件处理，直接跳文件尾部
+  i:=0;
+  if pos('.rar',filenames[i])=length(filenames[i])-3 then//说明.rar文件
+    rarfile.Text:=filenames[i] else
+  if pos('.jpg',filenames[i])=length(filenames[i])-3 then//说明.jpg文件
+    begin
+      f:=fileopen(filenames[i],fmOpenRead);
+      fileseek(f,-1,2);
+      fileread(f,ch,sizeof(ch));
+      fileclose(f);
+      //showmessage(inttostr(ord(ch)));
+      //showmessage(''+ch);
+      if ch=#217 then begin//说明这是一个纯图片
+        jpgfile.Text:=filenames[i];
+        preview.Picture.LoadFromFile(filenames[i]);
+        mainpage.TabIndex:=0;
+      end else begin
+        picname.text:=filenames[i];
+        picpreview.Picture.LoadFromFile(filenames[i]);
+        mainpage.TabIndex:=1;
+      end;
+    end;
+end;
 end.
 

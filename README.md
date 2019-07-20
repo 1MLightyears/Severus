@@ -1,4 +1,4 @@
-# jpgrar
+﻿# jpgrar
 A Chinese small software to encode/decode a .rar file inside a .jpg file
 
 这个轻量级的应用是用来制作图种的。<br>
@@ -11,3 +11,7 @@ A Chinese small software to encode/decode a .rar file inside a .jpg file
 <br><br>
 v0.2<br>
 \-增加了对中文路径名的支持
+<br>
+v0.3<br>
+\-现在可以将文件拖入窗口来添加文件了<br>
+\-现在可以将文件拖到程序图标上来添加文件了
