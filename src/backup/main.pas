@@ -146,19 +146,23 @@ var
   ret: HINST;
   ans: TCaption;
 begin
-  //检查是否选取了一个图种文件
-  if picname.text='' then showmessage('文件名不能为空！')else begin
-  //处理"解压到同一目录"复选框情形。被勾选的话，dir直接赋getcurrentdir。
-  if Exthere.Checked then dir:=getcurrentdir else
-    if DExt.Execute then dir:=Dext.filename else exit;
   //读注册表HKLM\SOFTWARE\WinRAR下exe64键值的值，得到WinRAR.exe所在位置
   reg:=Tregistry.Create(KEY_WRITE OR KEY_READ or KEY_WOW64_64KEY);
   reg.RootKey:=HKEY_LOCAL_MACHINE;
   if reg.OpenKey('SOFTWARE\WinRAR',false) then begin
     s:=reg.ReadString('exe64');
     if s='' then s:=reg.ReadString('exe');//如果装的是32位WinRAR
+    if s='' then begin
+      showmessage('需要正确安装WinRAR才能解包图种内容。');
+      exit;
+    end;
     reg.CloseKey;
   end;
+  //检查是否选取了一个图种文件
+  if picname.text='' then showmessage('文件名不能为空！')else begin
+  //处理"解压到同一目录"复选框情形。被勾选的话，dir直接赋getcurrentdir。
+  if Exthere.Checked then dir:=getcurrentdir else
+    if DExt.Execute then dir:=Dext.filename else exit;
   //如果不以\结尾，结尾补\（当不是根目录时）
   if dir[length(dir)]<>'\' then dir:=dir+'\';
   //一般情况下WinRAR都会在Program Files地下，有空格，因此加""

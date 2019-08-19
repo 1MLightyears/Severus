@@ -6,7 +6,7 @@ object mainform: Tmainform
   AllowDropFiles = True
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
-  Caption = '图种管理器0.3'
+  Caption = '图种管理器0.31'
   ClientHeight = 224
   ClientWidth = 403
   DesignTimePPI = 120
@@ -280,10 +280,10 @@ object mainform: Tmainform
       ClientWidth = 396
       object Label5: TLabel
         Left = 2
-        Height = 180
+        Height = 200
         Top = 6
-        Width = 306
-        Caption = 'v0.2:'#13#10'-支持jpg文件和rar文件位于中文路径下'#13#10'v0.3:'#13#10'-现在可以将文件拖入窗口来添加文件了'#13#10'-现在可以将文件拖到程序图标上来添加文件了'#13#10#13#10'作者:百万光年'#13#10'bug:lightyearsyuan@qq.com'#13#10'工具:说起来你可能不信但这是用Lazarus写的'
+        Width = 320
+        Caption = 'v0.3:'#13#10'-现在可以将文件拖入窗口来添加文件了'#13#10'-现在可以将文件拖到程序图标上来添加文件了'#13#10'v0.31:'#13#10'-修复了一个错误，该错误使得没有安装WinRAR'#13#10'而解包图种时崩溃'#13#10#13#10'作者:百万光年'#13#10'bug:lightyearsyuan@qq.com'#13#10'工具:说起来你可能不信但这是用Lazarus写的'
         ParentColor = False
       end
     end

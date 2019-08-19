@@ -3,14 +3,46 @@
   <ProjectSession>
     <PathDelim Value="\"/>
     <Version Value="10"/>
-    <BuildModes Active="Default"/>
+    <BuildModes Count="1" Active="Release">
+      <Item1 Name="Release">
+        <CompilerOptions>
+          <Version Value="11"/>
+          <PathDelim Value="\"/>
+          <Target>
+            <Filename Value="jpgrar"/>
+          </Target>
+          <SearchPaths>
+            <IncludeFiles Value="$(ProjOutDir)"/>
+            <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
+          </SearchPaths>
+          <CodeGeneration>
+            <SmartLinkUnit Value="True"/>
+            <TargetOS Value="win32"/>
+            <Optimizations>
+              <OptimizationLevel Value="3"/>
+            </Optimizations>
+          </CodeGeneration>
+          <Linking>
+            <Debugging>
+              <GenerateDebugInfo Value="False"/>
+            </Debugging>
+            <LinkSmart Value="True"/>
+            <Options>
+              <Win32>
+                <GraphicApplication Value="True"/>
+              </Win32>
+            </Options>
+          </Linking>
+        </CompilerOptions>
+      </Item1>
+    </BuildModes>
     <Units Count="39">
       <Unit0>
         <Filename Value="jpgrar.lpr"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="3"/>
         <CursorPos Y="22"/>
-        <UsageCount Value="58"/>
+        <UsageCount Value="60"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -20,9 +52,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="210"/>
-        <CursorPos Y="226"/>
-        <UsageCount Value="58"/>
+        <TopLine Value="213"/>
+        <CursorPos X="41" Y="227"/>
+        <UsageCount Value="60"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -32,7 +64,7 @@
         <UnitName Value="untDrag"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="11" Y="7"/>
-        <UsageCount Value="44"/>
+        <UsageCount Value="46"/>
       </Unit2>
       <Unit3>
         <Filename Value="D:\lazarus\lcl\extctrls.pp"/>
@@ -68,7 +100,7 @@
         <EditorIndex Value="2"/>
         <TopLine Value="1382"/>
         <CursorPos X="11" Y="1396"/>
-        <UsageCount Value="11"/>
+        <UsageCount Value="12"/>
         <Loaded Value="True"/>
       </Unit7>
       <Unit8>
@@ -258,7 +290,7 @@
         <EditorIndex Value="4"/>
         <TopLine Value="47"/>
         <CursorPos X="11" Y="20"/>
-        <UsageCount Value="12"/>
+        <UsageCount Value="13"/>
         <Loaded Value="True"/>
       </Unit35>
       <Unit36>
@@ -278,130 +310,130 @@
         <EditorIndex Value="1"/>
         <TopLine Value="106"/>
         <CursorPos X="15" Y="120"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="11"/>
         <Loaded Value="True"/>
       </Unit38>
     </Units>
-    <JumpHistory Count="30" HistoryIndex="29">
+    <JumpHistory Count="30" HistoryIndex="5">
       <Position1>
         <Filename Value="main.pas"/>
-        <Caret Line="187" Column="74"/>
+        <Caret Line="229" Column="54" TopLine="227"/>
       </Position1>
       <Position2>
         <Filename Value="main.pas"/>
-        <Caret Line="53" TopLine="37"/>
+        <Caret Line="220" Column="3" TopLine="206"/>
       </Position2>
       <Position3>
         <Filename Value="main.pas"/>
-        <Caret Line="53" TopLine="37"/>
+        <Caret Line="222" Column="45" TopLine="192"/>
       </Position3>
       <Position4>
         <Filename Value="main.pas"/>
-        <Caret Line="216" Column="3" TopLine="207"/>
+        <Caret Line="189" Column="10" TopLine="183"/>
       </Position4>
       <Position5>
         <Filename Value="main.pas"/>
-        <Caret Line="226" TopLine="212"/>
+        <Caret Line="201" Column="18" TopLine="184"/>
       </Position5>
       <Position6>
         <Filename Value="main.pas"/>
-        <Caret Line="224" Column="14" TopLine="214"/>
+        <Caret Line="237" Column="17" TopLine="213"/>
       </Position6>
       <Position7>
         <Filename Value="main.pas"/>
-        <Caret Line="229" Column="54" TopLine="227"/>
+        <Caret Line="238" Column="17" TopLine="214"/>
       </Position7>
       <Position8>
         <Filename Value="main.pas"/>
-        <Caret Line="220" Column="3" TopLine="206"/>
+        <Caret Line="239" Column="45" TopLine="214"/>
       </Position8>
       <Position9>
         <Filename Value="main.pas"/>
-        <Caret Line="222" Column="45" TopLine="192"/>
+        <Caret Line="238" Column="45" TopLine="213"/>
       </Position9>
       <Position10>
         <Filename Value="main.pas"/>
-        <Caret Line="189" Column="10" TopLine="183"/>
+        <Caret Line="245" Column="19" TopLine="219"/>
       </Position10>
       <Position11>
-        <Filename Value="main.pas"/>
-        <Caret Line="201" Column="18" TopLine="184"/>
+        <Filename Value="D:\lazarus\fpc\3.0.4\source\rtl\inc\systemh.inc"/>
+        <Caret Line="1252" Column="35" TopLine="1238"/>
       </Position11>
       <Position12>
         <Filename Value="main.pas"/>
-        <Caret Line="237" Column="17" TopLine="213"/>
+        <Caret Line="263" Column="39" TopLine="237"/>
       </Position12>
       <Position13>
         <Filename Value="main.pas"/>
-        <Caret Line="238" Column="17" TopLine="214"/>
+        <Caret Line="255" Column="47" TopLine="240"/>
       </Position13>
       <Position14>
         <Filename Value="main.pas"/>
-        <Caret Line="239" Column="45" TopLine="214"/>
+        <Caret Line="263" Column="19" TopLine="241"/>
       </Position14>
       <Position15>
         <Filename Value="main.pas"/>
-        <Caret Line="238" Column="45" TopLine="213"/>
+        <Caret Line="262" Column="32" TopLine="241"/>
       </Position15>
       <Position16>
         <Filename Value="main.pas"/>
-        <Caret Line="245" Column="19" TopLine="219"/>
+        <Caret Line="239" TopLine="226"/>
       </Position16>
       <Position17>
-        <Filename Value="D:\lazarus\fpc\3.0.4\source\rtl\inc\systemh.inc"/>
-        <Caret Line="1252" Column="35" TopLine="1238"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="208" Column="8" TopLine="194"/>
       </Position17>
       <Position18>
         <Filename Value="main.pas"/>
-        <Caret Line="263" Column="39" TopLine="237"/>
+        <Caret Line="169" Column="52" TopLine="156"/>
       </Position18>
       <Position19>
         <Filename Value="main.pas"/>
-        <Caret Line="255" Column="47" TopLine="240"/>
+        <Caret Line="127" Column="24" TopLine="115"/>
       </Position19>
       <Position20>
         <Filename Value="main.pas"/>
-        <Caret Line="263" Column="19" TopLine="241"/>
+        <Caret Line="252" Column="82" TopLine="240"/>
       </Position20>
       <Position21>
         <Filename Value="main.pas"/>
-        <Caret Line="262" Column="32" TopLine="241"/>
+        <Caret Line="263" Column="12" TopLine="240"/>
       </Position21>
       <Position22>
         <Filename Value="main.pas"/>
-        <Caret Line="239" TopLine="226"/>
+        <Caret Line="266" Column="9" TopLine="245"/>
       </Position22>
       <Position23>
         <Filename Value="main.pas"/>
-        <Caret Line="208" Column="8" TopLine="194"/>
+        <Caret Line="259" Column="28" TopLine="229"/>
       </Position23>
       <Position24>
         <Filename Value="main.pas"/>
-        <Caret Line="169" Column="52" TopLine="156"/>
+        <Caret Line="224" Column="29" TopLine="210"/>
       </Position24>
       <Position25>
         <Filename Value="main.pas"/>
-        <Caret Line="127" Column="24" TopLine="115"/>
+        <Caret Line="254" Column="49" TopLine="243"/>
       </Position25>
       <Position26>
         <Filename Value="main.pas"/>
-        <Caret Line="252" Column="82" TopLine="240"/>
+        <Caret Line="218" Column="3" TopLine="213"/>
       </Position26>
       <Position27>
         <Filename Value="main.pas"/>
-        <Caret Line="263" Column="12" TopLine="240"/>
+        <Caret Line="203" Column="49" TopLine="123"/>
       </Position27>
       <Position28>
         <Filename Value="main.pas"/>
-        <Caret Line="266" Column="9" TopLine="245"/>
+        <Caret Line="241" Column="3" TopLine="234"/>
       </Position28>
       <Position29>
         <Filename Value="main.pas"/>
-        <Caret Line="259" Column="28" TopLine="229"/>
+        <Caret Line="224" TopLine="211"/>
       </Position29>
       <Position30>
         <Filename Value="main.pas"/>
-        <Caret Line="224" Column="29" TopLine="210"/>
+        <Caret Line="186" Column="4" TopLine="172"/>
       </Position30>
     </JumpHistory>
   </ProjectSession>
