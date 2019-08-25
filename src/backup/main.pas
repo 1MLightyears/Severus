@@ -249,7 +249,16 @@ var
   i:integer;//为批量处理预留
   s: String;
 begin
-  //直接跳文件尾部
+  {进行处理
+  step1:取一个文件名
+  step2:判断文件类型，.rar跳step6
+  step3:判断是否图种，不是跳step5
+  step4:读入picname，跳step7
+  step5:读入jpgname，跳step7
+  step6:读入rarname
+  step7:处理完毕，重复step1至无文件为止
+  }
+  //流式文件处理，直接跳文件尾部
   i:=0;
   s:=LowerCase(filenames[i]);
   if pos('.rar',s)=length(s)-3 then//说明.rar文件
@@ -277,6 +286,7 @@ begin
       fileseek(f,-1,2);
       fileread(f,ch,sizeof(ch));
       fileclose(f);
+      showmessage(ch+','+inttostr(ord(ch)));
       if ch=#59 then begin//说明这是一个纯动图
         jpgfile.Text:=s;
         preview.Picture.LoadFromFile(s);

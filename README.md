@@ -9,6 +9,8 @@ A Chinese small software to combine/split a RAR archive with a picture(JPG/GIF)
 只需运行Severus.exe即可！
 
 <br><br>
+---
+Patch List:<br>
 v0.2<br>
 \-增加了对中文路径名的支持
 <br>
@@ -16,6 +18,9 @@ v0.3<br>
 \-现在可以将文件拖入窗口来添加文件了<br>
 \-现在可以将文件拖到程序图标上来添加文件了<br>
 v0.31<br>
-\-修复了一个错误，该错误使得没有安装WinRAR而解包图种时崩溃<br>
+\-修复了一个bug，该bug使得没有安装WinRAR而解包图种时崩溃<br>
 v0.4<br>
-\-现在可以制作和解压GIF格式的图种了
+\-现在可以制作和解压GIF格式的图种了<br>
+v0.41<br>
+\-修复了一个bug，该bug使得GIF动图无法拖入程序打开<br>
+\-修复了一个bug，该bug使得当文件扩展名是大写的时候无法拖入程序打开
