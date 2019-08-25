@@ -1,4 +1,4 @@
-program jpgrar;
+program severus;
 
 {$mode objfpc}{$H+}
 

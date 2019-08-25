@@ -6,7 +6,7 @@ object mainform: Tmainform
   AllowDropFiles = True
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
-  Caption = '图种管理器0.31'
+  Caption = '图种管理器0.4'
   ClientHeight = 224
   ClientWidth = 403
   DesignTimePPI = 120
@@ -40,14 +40,13 @@ object mainform: Tmainform
         Height = 33
         Top = 37
         Width = 252
-        Caption = '添加一个JPG图片(&J)'
+        Caption = '添加一张图片(&J)'
         OnClick = Button1Click
         TabOrder = 1
       end
       object preview: TImage
         Left = 256
         Height = 145
-        Hint = 'v0.2'#13#10'-支持jpg文件和rar文件位于中文路径下'
         Top = 3
         Width = 137
         ParentShowHint = False
@@ -146,11 +145,11 @@ object mainform: Tmainform
         ParentColor = False
       end
       object Label2: TLabel
-        Left = 8
+        Left = 4
         Height = 20
         Top = 8
-        Width = 60
-        Caption = 'JPG文件:'
+        Width = 64
+        Caption = '图片文件:'
         ParentColor = False
       end
       object Label3: TLabel
@@ -194,7 +193,6 @@ object mainform: Tmainform
       object picpreview: TImage
         Left = 232
         Height = 193
-        Hint = '必须安装了WinRAR才能解包'
         Top = 0
         Width = 161
         ParentShowHint = False
@@ -280,17 +278,17 @@ object mainform: Tmainform
       ClientWidth = 396
       object Label5: TLabel
         Left = 2
-        Height = 200
+        Height = 180
         Top = 6
         Width = 320
-        Caption = 'v0.3:'#13#10'-现在可以将文件拖入窗口来添加文件了'#13#10'-现在可以将文件拖到程序图标上来添加文件了'#13#10'v0.31:'#13#10'-修复了一个错误，该错误使得没有安装WinRAR'#13#10'而解包图种时崩溃'#13#10#13#10'作者:百万光年'#13#10'bug:lightyearsyuan@qq.com'#13#10'工具:说起来你可能不信但这是用Lazarus写的'
+        Caption = 'v0.31:'#13#10'-修复了一个错误，该错误使得没有安装WinRAR'#13#10'而解包图种时崩溃'#13#10'v0.4:'#13#10'-现在可以制作和解压GIF格式的图种了'#13#10#13#10'作者:百万光年'#13#10'bug:lightyearsyuan@qq.com'#13#10'工具:说起来你可能不信但这是用Lazarus写的'
         ParentColor = False
       end
     end
   end
   object Dsave: TSaveDialog
     Title = '保存文件...'
-    Filter = 'jpg文件|*.jpg|所有文件|*.*'
+    Filter = 'jpg文件|*.jpg|GIF文件|*.gif|所有文件|*.*'
     left = 360
     top = 96
   end

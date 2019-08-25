@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<CONFIG>
-  <Compiler Value="D:\lazarus\fpc\3.0.4\bin\i386-win32\fpc.exe" Date="1286835357"/>
-  <Params Value=" -Twin32 -MObjFPC -Scghi -CX -O3 -XX -WG -l -vewnhibq -FiE:\LazarusProject\jpgrar\src\lib\i386-win32 -FuD:\lazarus\lcl\units\i386-win32\win32 -FuD:\lazarus\lcl\units\i386-win32 -FuD:\lazarus\components\lazutils\lib\i386-win32 -FuD:\lazarus\packager\units\i386-win32 -FuE:\LazarusProject\jpgrar\src\ -FUE:\LazarusProject\jpgrar\src\lib\i386-win32\ -dLCL -dLCLwin32 jpgrar.lpr"/>
-</CONFIG>

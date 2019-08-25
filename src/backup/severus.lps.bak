@@ -9,7 +9,7 @@
           <Version Value="11"/>
           <PathDelim Value="\"/>
           <Target>
-            <Filename Value="jpgrar"/>
+            <Filename Value="severus"/>
           </Target>
           <SearchPaths>
             <IncludeFiles Value="$(ProjOutDir)"/>
@@ -38,7 +38,7 @@
     </BuildModes>
     <Units Count="40">
       <Unit0>
-        <Filename Value="jpgrar.lpr"/>
+        <Filename Value="severus.lpr"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos Y="22"/>
@@ -51,14 +51,12 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="125"/>
-        <CursorPos X="7" Y="132"/>
         <UsageCount Value="61"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
       <Unit2>
-        <Filename Value="untdrag.pas"/>
+        <Filename Value="..\..\jpgrar\src\untdrag.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="untDrag"/>
         <EditorIndex Value="-1"/>
@@ -279,7 +277,7 @@
         <UsageCount Value="9"/>
       </Unit33>
       <Unit34>
-        <Filename Value="..\main.pas"/>
+        <Filename Value="..\..\jpgrar\main.pas"/>
         <EditorIndex Value="-1"/>
         <UsageCount Value="9"/>
       </Unit34>
@@ -318,51 +316,23 @@
         <Loaded Value="True"/>
       </Unit39>
     </Units>
-    <JumpHistory Count="11" HistoryIndex="10">
+    <JumpHistory Count="4" HistoryIndex="3">
       <Position1>
-        <Filename Value="main.pas"/>
-        <Caret Line="220" Column="3" TopLine="206"/>
-      </Position1>
-      <Position2>
-        <Filename Value="main.pas"/>
-        <Caret Line="222" Column="45" TopLine="192"/>
-      </Position2>
-      <Position3>
-        <Filename Value="main.pas"/>
-        <Caret Line="189" Column="10" TopLine="183"/>
-      </Position3>
-      <Position4>
-        <Filename Value="main.pas"/>
-        <Caret Line="201" Column="18" TopLine="184"/>
-      </Position4>
-      <Position5>
-        <Filename Value="main.pas"/>
-        <Caret Line="237" Column="17" TopLine="213"/>
-      </Position5>
-      <Position6>
-        <Filename Value="main.pas"/>
-        <Caret Line="227" Column="41" TopLine="213"/>
-      </Position6>
-      <Position7>
-        <Filename Value="main.pas"/>
-        <Caret Line="159" Column="35" TopLine="146"/>
-      </Position7>
-      <Position8>
         <Filename Value="D:\lazarus\fpc\3.0.4\source\packages\fcl-registry\src\registry.pp"/>
         <Caret Line="97" Column="24" TopLine="85"/>
-      </Position8>
-      <Position9>
+      </Position1>
+      <Position2>
         <Filename Value="D:\lazarus\fpc\3.0.4\source\packages\fcl-registry\src\registry.pp"/>
         <Caret Line="146" Column="24" TopLine="123"/>
-      </Position9>
-      <Position10>
+      </Position2>
+      <Position3>
         <Filename Value="D:\lazarus\fpc\3.0.4\source\packages\fcl-registry\src\registry.pp"/>
         <Caret Line="187" Column="24" TopLine="164"/>
-      </Position10>
-      <Position11>
+      </Position3>
+      <Position4>
         <Filename Value="D:\lazarus\fpc\3.0.4\source\packages\fcl-registry\src\registry.pp"/>
         <Caret Line="387" Column="23" TopLine="385"/>
-      </Position11>
+      </Position4>
     </JumpHistory>
   </ProjectSession>
   <Debugging>
@@ -371,29 +341,29 @@
         <Kind Value="bpkSource"/>
         <WatchScope Value="wpsLocal"/>
         <WatchKind Value="wpkWrite"/>
-        <Source Value="main.pas"/>
-        <Line Value="114"/>
+        <Source Value="..\..\jpgrar\src\main.pas"/>
+        <Line Value="115"/>
       </Item1>
       <Item2>
         <Kind Value="bpkSource"/>
         <WatchScope Value="wpsLocal"/>
         <WatchKind Value="wpkWrite"/>
-        <Source Value="main.pas"/>
-        <Line Value="113"/>
+        <Source Value="..\..\jpgrar\src\main.pas"/>
+        <Line Value="114"/>
       </Item2>
       <Item3>
         <Kind Value="bpkSource"/>
         <WatchScope Value="wpsLocal"/>
         <WatchKind Value="wpkWrite"/>
-        <Source Value="main.pas"/>
-        <Line Value="171"/>
+        <Source Value="..\..\jpgrar\src\main.pas"/>
+        <Line Value="172"/>
       </Item3>
       <Item4>
         <Kind Value="bpkSource"/>
         <WatchScope Value="wpsLocal"/>
         <WatchKind Value="wpkWrite"/>
-        <Source Value="main.pas"/>
-        <Line Value="134"/>
+        <Source Value="..\..\jpgrar\src\main.pas"/>
+        <Line Value="135"/>
       </Item4>
     </BreakPoints>
     <Watches Count="7">

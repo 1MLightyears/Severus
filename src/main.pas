@@ -68,11 +68,12 @@ implementation
 
 procedure Tmainform.Button1Click(Sender: TObject);
 begin
-  Dopen.Filter:='JPG图片|*.jpg';
+  Dopen.Filter:='JPG图片|*.jpg|GIF动图|*.gif';
   if Dopen.Execute then begin//如果确实选取了一个文件名
      jpgfile.Text:=Dopen.FileName;
      preview.Picture.LoadFromFile(Dopen.FileName);//图片预览更新
   end;
+  dsave.FilterIndex:=dopen.FilterIndex;
 end;
 
 procedure Tmainform.Button2Click(Sender: TObject);
@@ -131,7 +132,7 @@ end;
 
 procedure Tmainform.Button4Click(Sender: TObject);
 begin
-  dopen.Filter:='JPG图片|*.jpg';
+  dopen.Filter:='JPG图片|*.jpg|GIF动图|*.gif';
   if dopen.Execute then begin//如果确实导入了一个图种文件
      picname.Text:=Dopen.FileName;
      picpreview.Picture.LoadFromFile(Dopen.FileName);
