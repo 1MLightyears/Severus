@@ -8,6 +8,9 @@ uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
   ComCtrls, ExtCtrls, ExtDlgs, Windows, Registry, shellAPI;
 
+const
+  cPictureFilterList:string='JPG图片|*.jpg|PNG图片|*.png|GIF动图|*.gif';
+
 type
 
   { Tmainform }
@@ -68,7 +71,7 @@ implementation
 
 procedure Tmainform.Button1Click(Sender: TObject);
 begin
-  Dopen.Filter:='JPG图片|*.jpg|GIF动图|*.gif';
+  Dopen.Filter:=cPictureFilterList;
   if Dopen.Execute then begin//如果确实选取了一个文件名
      jpgfile.Text:=Dopen.FileName;
      preview.Picture.LoadFromFile(Dopen.FileName);//图片预览更新
@@ -86,33 +89,32 @@ end;
 procedure Tmainform.Button3Click(Sender: TObject);
 var
   //定义非法字符集
-  errornamelist:array[1..7] of char=('/','\','#','*','&','%','|');
+  ErrorNameList:array[1..7] of char=('/','\','#','*','&','%','|');
   ok:boolean;
   i: Integer;
   ret: HINST;
   ans:unicodestring;
-  cmdline, para:pwidechar;
+  CmdLine,Para:pwidechar;
 begin
   if (jpgfile.text='') or (rarfile.text='') then
-    showmessage('缺少jpg图像文件或rar压缩文件，无法打包')
+    showmessage('缺少图像文件或rar压缩文件，无法打包')
   else if Dsave.Execute then begin//如果指定了打包文件名
       targetfile.text:=dsave.filename;//更新打包文件名显示
       //文件名含有非法字符检测
       ok:=true;
-      for i:=1 to 7 do if pos(targetfile.Text,errornamelist[i])<>0 then begin
+      for i:=1 to 7 do if pos(targetfile.Text,ErrorNameList[i])<>0 then begin
         ok:=false;
         showmessage('文件名包含非法字符:/\#*&%|');
         break;
       end;
       //如果没有非法字符
       if ok then begin
-        //主程序cmd
-        cmdline:=pwidechar('cmd.exe');
+        CmdLine:=pwidechar('cmd.exe');
         //参数表
         ans:='/c copy /b "'+jpgfile.text+'"+"'+rarfile.text+'" "'+targetfile.text+'"';
-        //para转化其为pwidechar格式给shellexecutew调用
-        para:=pwidechar(ans);
-        ret:=shellexecutew(FindWindow(nil,PChar(mainform.Caption)),nil,cmdline,para,pwidechar(getcurrentdir),SW_HIDE);
+        //Para转化其为pwidechar格式给shellexecutew调用
+        Para:=pwidechar(ans);
+        ret:=shellexecutew(FindWindow(nil,PChar(mainform.Caption)),nil,CmdLine,Para,pwidechar(getcurrentdir),SW_HIDE);
         //处理返回值
         case ret of
           ERROR_FILE_NOT_FOUND:ans:='指定的文件没有找到';
@@ -132,7 +134,7 @@ end;
 
 procedure Tmainform.Button4Click(Sender: TObject);
 begin
-  dopen.Filter:='JPG图片|*.jpg|GIF动图|*.gif';
+  dopen.Filter:=cPictureFilterList;
   if dopen.Execute then begin//如果确实导入了一个图种文件
      picname.Text:=Dopen.FileName;
      picpreview.Picture.LoadFromFile(Dopen.FileName);
@@ -143,7 +145,7 @@ procedure Tmainform.Button5Click(Sender: TObject);
 var
   reg:Tregistry;
   s, dir: unicodeString;
-  para: PwideChar;
+  Para: PwideChar;
   ret: HINST;
   ans: TCaption;
 begin
@@ -169,7 +171,7 @@ begin
   //一般情况下WinRAR都会在Program Files地下，有空格，因此加""
   s:='"'+s+'"';
   //类似的转换和调用
-  para:=pwidechar(unicodestring(' x "'+picname.Text+'" "'+dir+'"'));
+  Para:=pwidechar(unicodestring(' x "'+picname.Text+'" "'+dir+'"'));
   ret:=shellexecutew(FindWindow(nil,PChar(mainform.Caption)),nil,pwidechar(s),para,pwidechar(getcurrentdir),SW_HIDE);
   case ret of
           ERROR_FILE_NOT_FOUND:ans:='指定的文件没有找到';
@@ -187,8 +189,9 @@ begin
   end;
 
 end;
-//现用现加载USER32.dll
+
 //begin DropFiles
+//现用现加载USER32.dll
 function CheckUser32Module: Boolean;
 begin
  if User32Module=0 then User32Module:=safeLoadLibrary('USER32.DLL');
@@ -220,6 +223,7 @@ const
   WM_COPYGLOBALDATA = 73;
   MSGFLT_ADD = 1;
 begin
+  mainpage.TabIndex:=0;
   //注册窗口可以接受拖入文件
   mainform.AllowDropFiles:=True;
   //为读取WinRAR安装路径，使用了Unit Regestry;这要求管理员权限
@@ -230,7 +234,8 @@ begin
   try
      ChangeWindowMessageFilter(WM_COPYGLOBALDATA, MSGFLT_ADD);
      ChangeWindowMessageFilter(WM_DROPFILES, MSGFLT_ADD);
-  except;end;
+  except;
+  end;
   if paramcount>0 then
     self.FormDropFiles(self,paramstr(1));
 end;
@@ -252,8 +257,12 @@ begin
   //直接跳文件尾部
   i:=0;
   s:=LowerCase(filenames[i]);
-  if pos('.rar',s)=length(s)-3 then//说明.rar文件
-    rarfile.Text:=s else
+
+  if pos('.rar',s)=length(s)-3 then begin//说明.rar文件
+    rarfile.Text:=s;
+    mainpage.TabIndex:=0;
+  end;
+
   if pos('.jpg',s)=length(s)-3 then//说明.jpg文件
     begin
       f:=fileopen(s,fmOpenRead);
@@ -265,12 +274,31 @@ begin
         preview.Picture.LoadFromFile(s);
         mainpage.TabIndex:=0;
         Dsave.FilterIndex:=1;
-      end else begin
+      end else begin      //说明这是一个图种
         picname.text:=s;
         picpreview.Picture.LoadFromFile(s);
         mainpage.TabIndex:=1;
       end;
     end;
+
+  if pos('.png',s)=length(s)-3 then//说明.png文件
+    begin
+      f:=fileopen(s,fmOpenRead);
+      fileseek(f,-1,2);
+      fileread(f,ch,sizeof(ch));
+      fileclose(f);
+      if ch=#$82 then begin//说明这是一个纯图片
+        jpgfile.Text:=s;
+        preview.Picture.LoadFromFile(s);
+        mainpage.TabIndex:=0;
+        Dsave.FilterIndex:=2;
+      end else begin      //说明这是一个图种
+        picname.text:=s;
+        picpreview.Picture.LoadFromFile(s);
+        mainpage.TabIndex:=1;
+      end;
+    end;
+
   if pos('.gif',s)=length(s)-3 then//说明.gif文件
      begin
       f:=fileopen(s,fmOpenRead);
@@ -281,8 +309,8 @@ begin
         jpgfile.Text:=s;
         preview.Picture.LoadFromFile(s);
         mainpage.TabIndex:=0;
-        Dsave.FilterIndex:=2;
-      end else begin
+        Dsave.FilterIndex:=3;
+      end else begin      //说明这是一个图种
         picname.text:=s;
         picpreview.Picture.LoadFromFile(s);
         mainpage.TabIndex:=1;

@@ -6,7 +6,7 @@ object mainform: Tmainform
   AllowDropFiles = True
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
-  Caption = '图种管理器0.4'
+  Caption = '图种管理器0.5'
   ClientHeight = 224
   ClientWidth = 403
   DesignTimePPI = 120
@@ -280,26 +280,26 @@ object mainform: Tmainform
         Left = 2
         Height = 180
         Top = 6
-        Width = 320
-        Caption = 'v0.31:'#13#10'-修复了一个错误，该错误使得没有安装WinRAR'#13#10'而解包图种时崩溃'#13#10'v0.4:'#13#10'-现在可以制作和解压GIF格式的图种了'#13#10#13#10'作者:百万光年'#13#10'bug:lightyearsyuan@qq.com'#13#10'工具:说起来你可能不信但这是用Lazarus写的'
+        Width = 499
+        Caption = 'v0.41'#13#10'-修复了一个bug，该bug使得GIF动图无法拖入程序打开'#13#10'-修复了一个bug，该bug使得当文件扩展名是大写的时候无法拖入程序打开'#13#10'v0.5'#13#10'-现在可以制作和解压png格式的图种了'#13#10#13#10'作者:百万光年'#13#10'bug:lightyearsyuan@qq.com'#13#10'工具:说起来你可能不信但这是用Lazarus写的'
         ParentColor = False
       end
     end
   end
   object Dsave: TSaveDialog
     Title = '保存文件...'
-    Filter = 'jpg文件|*.jpg|GIF文件|*.gif|所有文件|*.*'
+    Filter = 'JPG图片|*.jpg|PNG图片|*.png|GIF动图|*.gif'
     left = 360
     top = 96
   end
   object DExt: TSelectDirectoryDialog
-    Title = '选择目录(点击"取消"默认选择图种管理器所在目录)...'
+    Title = '选择目录...'
     left = 312
     top = 40
   end
   object Dopen: TOpenPictureDialog
     Title = '打开图片...'
-    Filter = 'jpg图像文件|(*.jpg)'
+    Filter = 'JPG图片|*.jpg|PNG图片|*.png|GIF动图|*.gif'
     left = 360
     top = 40
   end

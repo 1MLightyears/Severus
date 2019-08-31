@@ -42,7 +42,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos Y="22"/>
-        <UsageCount Value="61"/>
+        <UsageCount Value="65"/>
       </Unit0>
       <Unit1>
         <Filename Value="main.pas"/>
@@ -51,9 +51,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="275"/>
-        <CursorPos X="44" Y="288"/>
-        <UsageCount Value="61"/>
+        <TopLine Value="277"/>
+        <CursorPos Y="290"/>
+        <UsageCount Value="65"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -310,81 +310,110 @@
       </Unit38>
       <Unit39>
         <Filename Value="D:\lazarus\fpc\3.0.4\source\packages\fcl-registry\src\registry.pp"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="68"/>
         <CursorPos X="18" Y="81"/>
         <UsageCount Value="11"/>
-        <Loaded Value="True"/>
       </Unit39>
       <Unit40>
         <Filename Value="D:\lazarus\fpc\3.0.4\source\rtl\objpas\sysutils\syshelph.inc"/>
-        <EditorIndex Value="1"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="66"/>
         <CursorPos X="20" Y="79"/>
         <UsageCount Value="10"/>
-        <Loaded Value="True"/>
       </Unit40>
       <Unit41>
         <Filename Value="D:\lazarus\fpc\3.0.4\source\rtl\objpas\sysutils\sysstrh.inc"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="58"/>
         <CursorPos X="10" Y="71"/>
         <UsageCount Value="10"/>
-        <Loaded Value="True"/>
       </Unit41>
     </Units>
-    <JumpHistory Count="13" HistoryIndex="12">
+    <JumpHistory Count="21" HistoryIndex="20">
       <Position1>
-        <Filename Value="D:\lazarus\fpc\3.0.4\source\packages\fcl-registry\src\registry.pp"/>
-        <Caret Line="97" Column="24" TopLine="85"/>
+        <Filename Value="main.pas"/>
       </Position1>
       <Position2>
-        <Filename Value="D:\lazarus\fpc\3.0.4\source\packages\fcl-registry\src\registry.pp"/>
-        <Caret Line="146" Column="24" TopLine="123"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="262" Column="26" TopLine="250"/>
       </Position2>
       <Position3>
-        <Filename Value="D:\lazarus\fpc\3.0.4\source\packages\fcl-registry\src\registry.pp"/>
-        <Caret Line="187" Column="24" TopLine="164"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="288" Column="56" TopLine="270"/>
       </Position3>
       <Position4>
-        <Filename Value="D:\lazarus\fpc\3.0.4\source\packages\fcl-registry\src\registry.pp"/>
-        <Caret Line="387" Column="23" TopLine="385"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="261" Column="15" TopLine="250"/>
       </Position4>
       <Position5>
         <Filename Value="main.pas"/>
+        <Caret Line="277" Column="43" TopLine="262"/>
       </Position5>
       <Position6>
         <Filename Value="main.pas"/>
-        <Caret Line="262" Column="26" TopLine="250"/>
+        <Caret Line="299" Column="35" TopLine="273"/>
       </Position6>
       <Position7>
-        <Filename Value="D:\lazarus\fpc\3.0.4\source\rtl\objpas\sysutils\syshelph.inc"/>
-        <Caret Line="79" Column="20" TopLine="66"/>
+        <Filename Value="main.pas"/>
+        <Caret Line="263" Column="3" TopLine="244"/>
       </Position7>
       <Position8>
         <Filename Value="main.pas"/>
-        <Caret Line="288" Column="56" TopLine="270"/>
+        <Caret Line="288" Column="44" TopLine="275"/>
       </Position8>
       <Position9>
         <Filename Value="main.pas"/>
-        <Caret Line="261" Column="15" TopLine="250"/>
+        <Caret Line="276" Column="9" TopLine="259"/>
       </Position9>
       <Position10>
         <Filename Value="main.pas"/>
-        <Caret Line="277" Column="43" TopLine="262"/>
+        <Caret Line="283" Column="34" TopLine="267"/>
       </Position10>
       <Position11>
         <Filename Value="main.pas"/>
-        <Caret Line="299" Column="35" TopLine="273"/>
+        <Caret Line="27" Column="66" TopLine="10"/>
       </Position11>
       <Position12>
         <Filename Value="main.pas"/>
-        <Caret Line="263" Column="3" TopLine="244"/>
+        <Caret Line="80" Column="19" TopLine="72"/>
       </Position12>
       <Position13>
         <Filename Value="main.pas"/>
-        <Caret Line="288" Column="44" TopLine="275"/>
+        <Caret Line="137" Column="3" TopLine="135"/>
       </Position13>
+      <Position14>
+        <Filename Value="main.pas"/>
+        <Caret Line="152" Column="3" TopLine="15"/>
+      </Position14>
+      <Position15>
+        <Filename Value="main.pas"/>
+        <Caret Line="159" Column="18" TopLine="136"/>
+      </Position15>
+      <Position16>
+        <Filename Value="main.pas"/>
+        <Caret Line="187" Column="20" TopLine="182"/>
+      </Position16>
+      <Position17>
+        <Filename Value="main.pas"/>
+        <Caret Line="288" Column="17" TopLine="281"/>
+      </Position17>
+      <Position18>
+        <Filename Value="main.pas"/>
+        <Caret Line="262" Column="26" TopLine="253"/>
+      </Position18>
+      <Position19>
+        <Filename Value="main.pas"/>
+        <Caret Line="240" Column="23" TopLine="221"/>
+      </Position19>
+      <Position20>
+        <Filename Value="main.pas"/>
+        <Caret Line="114" Column="15" TopLine="101"/>
+      </Position20>
+      <Position21>
+        <Filename Value="main.pas"/>
+        <Caret Line="116" TopLine="101"/>
+      </Position21>
     </JumpHistory>
   </ProjectSession>
   <Debugging>
