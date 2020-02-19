@@ -1,13 +1,13 @@
 object mainform: Tmainform
   Left = 608
-  Height = 224
+  Height = 258
   Top = 283
   Width = 403
   AllowDropFiles = True
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
-  Caption = '图种管理器0.5'
-  ClientHeight = 224
+  Caption = 'Serverus v0.6 -图种管理器-'
+  ClientHeight = 258
   ClientWidth = 403
   DesignTimePPI = 120
   OnCreate = FormCreate
@@ -17,7 +17,7 @@ object mainform: Tmainform
   object mainpage: TPageControl
     Tag = 2
     Left = 0
-    Height = 224
+    Height = 256
     Top = 0
     Width = 404
     ActivePage = encode
@@ -25,13 +25,14 @@ object mainform: Tmainform
     TabOrder = 0
     object encode: TTabSheet
       Caption = '制作图种'
-      ClientHeight = 191
+      ClientHeight = 223
       ClientWidth = 396
-      object jpgfile: TEdit
+      object picfile: TEdit
         Left = 72
         Height = 28
         Top = 8
         Width = 180
+        OnChange = picfileChange
         ReadOnly = True
         TabOrder = 0
       end
@@ -46,7 +47,7 @@ object mainform: Tmainform
       end
       object preview: TImage
         Left = 256
-        Height = 145
+        Height = 157
         Top = 3
         Width = 137
         ParentShowHint = False
@@ -107,6 +108,7 @@ object mainform: Tmainform
         Height = 28
         Top = 80
         Width = 180
+        OnChange = rarfileChange
         ReadOnly = True
         TabOrder = 2
       end
@@ -120,10 +122,10 @@ object mainform: Tmainform
         TabOrder = 3
       end
       object Button3: TButton
-        Left = 256
-        Height = 39
-        Top = 152
-        Width = 137
+        Left = 0
+        Height = 31
+        Top = 192
+        Width = 393
         Caption = '生成图种(&G)'
         OnClick = Button3Click
         TabOrder = 4
@@ -132,7 +134,7 @@ object mainform: Tmainform
         Left = 96
         Height = 28
         Top = 160
-        Width = 152
+        Width = 296
         ReadOnly = True
         TabOrder = 5
       end
@@ -163,36 +165,36 @@ object mainform: Tmainform
     end
     object decode: TTabSheet
       Caption = '解包图种'
-      ClientHeight = 191
+      ClientHeight = 223
       ClientWidth = 396
       object Label4: TLabel
-        Left = 0
+        Left = 3
         Height = 20
-        Top = 24
+        Top = 8
         Width = 79
         Caption = '图种文件名:'
         ParentColor = False
       end
       object picname: TEdit
-        Left = 82
+        Left = 3
         Height = 28
-        Top = 16
-        Width = 140
+        Top = 32
+        Width = 219
         ReadOnly = True
         TabOrder = 0
       end
       object Button4: TButton
-        Left = 0
-        Height = 31
-        Top = 104
-        Width = 222
+        Left = 3
+        Height = 39
+        Top = 128
+        Width = 219
         Caption = '导入一个图种文件(&O)'
         OnClick = Button4Click
         TabOrder = 1
       end
       object picpreview: TImage
         Left = 232
-        Height = 193
+        Height = 224
         Top = 0
         Width = 161
         ParentShowHint = False
@@ -255,18 +257,18 @@ object mainform: Tmainform
         Stretch = True
       end
       object Button5: TButton
-        Left = 0
-        Height = 31
-        Top = 152
-        Width = 222
+        Left = 3
+        Height = 39
+        Top = 177
+        Width = 219
         Caption = '解压一个图种文件(&D)'
         OnClick = Button5Click
         TabOrder = 2
       end
       object ExtHere: TCheckBox
-        Left = 0
+        Left = 3
         Height = 24
-        Top = 61
+        Top = 80
         Width = 219
         Caption = '解压到图种管理器所在文件夹'
         TabOrder = 3
@@ -274,33 +276,35 @@ object mainform: Tmainform
     end
     object TabSheet1: TTabSheet
       Caption = '说明'
-      ClientHeight = 191
+      ClientHeight = 223
       ClientWidth = 396
       object Label5: TLabel
         Left = 2
-        Height = 180
+        Height = 220
         Top = 6
-        Width = 499
-        Caption = 'v0.41'#13#10'-修复了一个bug，该bug使得GIF动图无法拖入程序打开'#13#10'-修复了一个bug，该bug使得当文件扩展名是大写的时候无法拖入程序打开'#13#10'v0.5'#13#10'-现在可以制作和解压png格式的图种了'#13#10#13#10'作者:百万光年'#13#10'bug:lightyearsyuan@qq.com'#13#10'工具:说起来你可能不信但这是用Lazarus写的'
+        Width = 395
+        Caption = '这个轻量级的应用是用来制作图种的。'#13#10'通过这个应用，你可以'#13#10'-通过将一个图片文件(JPG/PNG/GIF) 和一个.rar文件头尾相'#13#10' 接，将他们合成一个文件，同时还能正常地打开并看到图片'#13#10#13#10'也可以'#13#10'-用WinRAR解压缩一个图种文件，并把里面的内容释放出来'#13#10#13#10'作者:百万光年'#13#10'bug:lightyearsyuan@qq.com'#13#10'工具:说起来你可能不信但这是用Lazarus写的'
         ParentColor = False
       end
     end
   end
   object Dsave: TSaveDialog
+    OnClose = DsaveClose
     Title = '保存文件...'
     Filter = 'JPG图片|*.jpg|PNG图片|*.png|GIF动图|*.gif'
-    left = 360
-    top = 96
+    left = 312
+    top = 120
   end
   object DExt: TSelectDirectoryDialog
     Title = '选择目录...'
-    left = 312
-    top = 40
+    left = 272
+    top = 120
   end
   object Dopen: TOpenPictureDialog
+    OnClose = DopenClose
     Title = '打开图片...'
     Filter = 'JPG图片|*.jpg|PNG图片|*.png|GIF动图|*.gif'
-    left = 360
-    top = 40
+    left = 352
+    top = 120
   end
 end

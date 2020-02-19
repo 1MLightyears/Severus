@@ -12,7 +12,7 @@
       <XPManifest>
         <DpiAware Value="True"/>
         <ExecutionLevel Value="requireAdministrator"/>
-        <TextName Value="jpgrar"/>
+        <TextName Value="Severus"/>
         <TextDesc Value="调用WinRAR"/>
       </XPManifest>
       <Icon Value="0"/>
@@ -97,9 +97,6 @@
       <TargetOS Value="win32"/>
     </CodeGeneration>
     <Linking>
-      <Debugging>
-        <GenerateDebugInfo Value="False"/>
-      </Debugging>
       <Options>
         <Win32>
           <GraphicApplication Value="True"/>
